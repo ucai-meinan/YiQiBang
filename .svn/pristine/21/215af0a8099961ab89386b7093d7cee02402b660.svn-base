@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.uc.yiqibang.mapper.NewsMapper">
+	<!--获取所有新闻 -->
+
+	<select id="selectAllNews" resultMap="NewsMap">
+		select * from t_news
+	</select>
+
+	<delete id="deleteNews" parameterType="java.lang.Integer">
+
+		delete from t_news
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+
+	<resultMap type="News" id="NewsMap">
+		<id column="id" property="id" />
+		<result column="t_t_id" property="typeId" />
+		<result column="n_title" property="title" />
+		<result column="n_source" property="source" />
+		<result column="n_content" property="content" />
+		<result column="n_createtime" property="createtime" />
+		<result column="n_commcount" property="commCount" />
+		<result column="n_readcount" property="readCount" />
+		<result column="n_author" property="author" />
+		<result column="n_sharecount" property="shareCount" />
+		<result column="n_ifhot" property="ifHot" />
+		<result column="n_ifreport" property="ifReport" />
+	</resultMap>
+</mapper>

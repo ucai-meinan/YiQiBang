@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.uc.yiqibang.mapper.PicMapper">
+
+	<delete id="deletePic" parameterType="cn.uc.yiqibang.beans.Pic">
+		delete from t_pic
+		<trim prefix="where" prefixOverrides="and|or">
+			<if test="newsId!=null">
+				and t_n_id=#{newsId}
+			</if>
+		</trim>
+	</delete>
+
+	 <insert id="insertSelective" parameterType="cn.uc.yiqibang.beans.Pic" >
+    insert into t_pic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="newsId != null" >
+        t_n_id,
+      </if>
+      <if test="path != null" >
+        p_path,
+      </if>
+      <if test="info != null" >
+        p_info,
+      </if>
+      <if test="author != null" >
+        p_author,
+      </if>
+      <if test="source != null" >
+        p_source,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="newsId != null" >
+        #{newsId,jdbcType=INTEGER},
+      </if>
+      <if test="path != null" >
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null" >
+        #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+	<resultMap type="News" id="PicMap">
+		<id column="id" property="id" />
+		<result column="t_n_id" property="newsId" />
+		<result column="p_path" property="path" />
+		<result column="p_info" property="info" />
+		<result column="p_author" property="author" />
+		<result column="p_source" property="source" />
+	</resultMap>
+</mapper>

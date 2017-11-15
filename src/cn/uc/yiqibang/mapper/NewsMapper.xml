@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.uc.yiqibang.mapper.NewsMapper">
+	<!--获取所有新闻 -->
+
+	<select id="selectAllNews" resultMap="NewsMap">
+		select * from t_news
+	</select>
+
+	<delete id="deleteNews" parameterType="java.lang.Integer">
+
+		delete from t_news
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+
+	<select id="selectNewsByLike" resultMap="NewsMap" parameterType="java.lang.String">
+       select * from t_news
+      where n_title like #{likeStr}
+      or n_source like #{likeStr}
+      or n_author like #{likeStr}
+      or n_content like #{likeStr}
+  </select>
+  
+ <update id="updateNews" parameterType="cn.uc.yiqibang.beans.News" >
+    update t_news
+    <set >
+      <if test="typeId != null" >
+        t_t_id = #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        n_title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        n_source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        n_createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commCount != null" >
+        n_commcount = #{commCount,jdbcType=INTEGER},
+      </if>
+      <if test="readCount != null" >
+        n_readcount = #{readCount,jdbcType=INTEGER},
+      </if>
+      <if test="author != null" >
+        n_author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="shareCount != null" >
+        n_sharecount = #{shareCount,jdbcType=INTEGER},
+      </if>
+      <if test="ifHot != null" >
+        n_ifhot = #{ifHot,jdbcType=BIT},
+      </if>
+      <if test="ifReport != null" >
+        n_ifreport = #{ifReport,jdbcType=BIT},
+      </if>
+      <if test="content != null" >
+        n_content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+   <insert id="insertNews" parameterType="cn.uc.yiqibang.beans.News" >
+   
+    insert into t_news
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="typeId != null" >
+        t_t_id,
+      </if>
+      <if test="title != null" >
+        n_title,
+      </if>
+      <if test="source != null" >
+        n_source,
+      </if>
+      <if test="createtime != null" >
+        n_createtime,
+      </if>
+      <if test="commCount != null" >
+        n_commcount,
+      </if>
+      <if test="readCount != null" >
+        n_readcount,
+      </if>
+      <if test="author != null" >
+        n_author,
+      </if>
+      <if test="shareCount != null" >
+        n_sharecount,
+      </if>
+      <if test="ifHot != null" >
+        n_ifhot,
+      </if>
+      <if test="ifReport != null" >
+        n_ifreport,
+      </if>
+      <if test="content != null" >
+        n_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commCount != null" >
+        #{commCount,jdbcType=INTEGER},
+      </if>
+      <if test="readCount != null" >
+        #{readCount,jdbcType=INTEGER},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="shareCount != null" >
+        #{shareCount,jdbcType=INTEGER},
+      </if>
+      <if test="ifHot != null" >
+        #{ifHot,jdbcType=BIT},
+      </if>
+      <if test="ifReport != null" >
+        #{ifReport,jdbcType=BIT},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+	<resultMap type="News" id="NewsMap">
+		<id column="id" property="id" />
+		<result column="t_t_id" property="typeId" />
+		<result column="n_title" property="title" />
+		<result column="n_source" property="source" />
+		<result column="n_content" property="content" />
+		<result column="n_createtime" property="createtime" />
+		<result column="n_commcount" property="commCount" />
+		<result column="n_readcount" property="readCount" />
+		<result column="n_author" property="author" />
+		<result column="n_sharecount" property="shareCount" />
+		<result column="n_ifhot" property="ifHot" />
+		<result column="n_ifreport" property="ifReport" />
+	</resultMap>
+</mapper>

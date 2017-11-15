@@ -1,0 +1,39 @@
+package cn.uc.yiqibang.utils;
+
+/**
+ * 字符串的参数拼接类
+ * @author 12644
+ *
+ */
+public class Constants {
+
+	//响应码
+	public static final int RETCODE_SUCCESS=0;
+	public static final int RETCODE_FAILED=2000;
+	
+	//定义映射文件.xml的包的根路径
+	 public static final String root="cn.uc.yiqibang.mapper";
+	 //定义mapper映射文件的名称
+	 public static final String commentMapper=".CommentMapper";
+	 public static final String newsMapper=".NewsMapper";
+	 public static final String PicMapper=".PicMapper";
+	 //定义操作的sql语句的id名称
+	 public static final String selectAllNews=".selectAllNews";	 
+	 public static final String selectAllComm=".selectAllComm";	 
+	 public static final String deletePic=".deletePic";
+	 public static final String deleteComm=".deleteComm";
+	 public static final String deleteNews=".deleteNews";
+	 //...
+	 
+	 //Comment评论的操作语句路径
+	 public static final String commentMapper_selectAllComm=root+commentMapper+selectAllComm;
+	 public static final String commentMapper_deleteComm=root+commentMapper+deleteComm;
+	 
+	 //News新闻的操作语句路径
+	 public static final String newsMapper_selectAllNews=root+newsMapper+selectAllNews;
+	 public static final String newsMapper_deleteNews=root+newsMapper+deleteNews;
+	 
+	 
+	 //图片
+	 public static final String picMapper_deletePic=root+PicMapper+deletePic;
+}

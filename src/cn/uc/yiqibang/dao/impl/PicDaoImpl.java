@@ -1,0 +1,47 @@
+package cn.uc.yiqibang.dao.impl;
+
+import org.apache.ibatis.session.SqlSession;
+
+import cn.uc.yiqibang.beans.Pic;
+import cn.uc.yiqibang.dao.PicDao;
+import cn.uc.yiqibang.utils.Constants;
+import cn.uc.yiqibang.utils.MyBatisUtils;
+import cn.uc.yiqibang.utils.Result;
+
+public class PicDaoImpl implements PicDao {
+
+	@Override
+	public Result deletePic(Pic pic) {
+		Result result=new Result();
+		SqlSession session = MyBatisUtils.openSession();
+		int row = session.delete(Constants.picMapper_deletePic,pic);
+		session.commit();
+		session.close();
+		if(row>0){
+			result.setRetCode(Constants.RETCODE_SUCCESS);
+			result.setRetMsg(true);
+		}else{
+			result.setRetCode(Constants.RETCODE_FAILED);
+			result.setRetMsg(false);
+		}
+		return result;
+	}
+
+	@Override
+	public Result insertSelective(Pic pic) {
+		Result result=new Result();
+		SqlSession session=MyBatisUtils.openSession();
+		int row = session.insert(Constants.picMapper_insertSelective,pic);
+		session.commit();
+		session.close();
+		if(row>0){
+			result.setRetCode(Constants.RETCODE_SUCCESS);
+			result.setRetMsg(true);
+		}else{
+			result.setRetCode(Constants.RETCODE_FAILED);
+			result.setRetMsg(false);
+		}
+		return result;
+	}
+
+}

@@ -1,0 +1,74 @@
+/*样式初始化*/
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 微软雅黑;
+    font-size: 16px;
+    background: #e4e5e5;
+}
+ul,ol,li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+/*通用样式*/
+.clear{
+    overflow: hidden;
+    zoom: 0;
+}
+/*导航条样式*/
+#head #color{
+    background: #1d314a;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+#head .left{
+    height: 60px;
+    line-height: 60px;
+}
+#head .left img{
+    float: left;
+    margin-top: 20px;
+    margin-left: 12px;
+}
+#head .left a{
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: -8px;
+}
+#head .middle{
+    margin-left: 820px;
+    margin-top: 5px;
+}
+#head .middle input{
+    background: #1b2531;
+    border: none;
+}
+#head .middle button {
+    background: #1b2531;
+    border: none;
+}
+#content .left{
+    float: left;
+    width: 10%;
+    height: 910px;
+    background: #1b2531;
+}
+#content .left ul{
+    border: none;
+}
+#content .left ul li{
+    float: none;
+
+}
+#content .header{
+    margin-left: 220px;
+}
+#content .right table{
+	width:100%
+	border:
+}

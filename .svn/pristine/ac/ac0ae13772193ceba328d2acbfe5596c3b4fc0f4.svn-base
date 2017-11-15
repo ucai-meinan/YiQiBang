@@ -1,0 +1,137 @@
+package cn.uc.yiqibang.beans;
+
+import java.util.Date;
+
+public class News {
+	
+	
+	private int id;
+	private int typeId;
+	private String title;
+	private String cource;
+	private String content;
+	private Date createtime;
+	private int commCount;
+	private int readCount;
+	private String author;
+	private int shareCount;
+	private boolean ifHot;
+	private boolean ifReport;
+	
+	public News() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public News(int typeId, String title, String cource, String content, Date createtime, int commCount, int readCount,
+			String author, int shareCount, boolean ifHot, boolean ifReport) {
+		super();
+		this.typeId = typeId;
+		this.title = title;
+		this.cource = cource;
+		this.content = content;
+		this.createtime = createtime;
+		this.commCount = commCount;
+		this.readCount = readCount;
+		this.author = author;
+		this.shareCount = shareCount;
+		this.ifHot = ifHot;
+		this.ifReport = ifReport;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getTypeId() {
+		return typeId;
+	}
+
+	public void setTypeId(int typeId) {
+		this.typeId = typeId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getCource() {
+		return cource;
+	}
+
+	public void setCource(String cource) {
+		this.cource = cource;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Date getCreatetime() {
+		return createtime;
+	}
+
+	public void setCreatetime(Date createtime) {
+		this.createtime = createtime;
+	}
+
+	public int getCommCount() {
+		return commCount;
+	}
+
+	public void setCommCount(int commCount) {
+		this.commCount = commCount;
+	}
+
+	public int getReadCount() {
+		return readCount;
+	}
+
+	public void setReadCount(int readCount) {
+		this.readCount = readCount;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public int getShareCount() {
+		return shareCount;
+	}
+
+	public void setShareCount(int shareCount) {
+		this.shareCount = shareCount;
+	}
+
+	public boolean isIfHot() {
+		return ifHot;
+	}
+
+	public void setIfHot(boolean ifHot) {
+		this.ifHot = ifHot;
+	}
+
+	public boolean isIfReport() {
+		return ifReport;
+	}
+
+	public void setIfReport(boolean ifReport) {
+		this.ifReport = ifReport;
+	}
+	
+}

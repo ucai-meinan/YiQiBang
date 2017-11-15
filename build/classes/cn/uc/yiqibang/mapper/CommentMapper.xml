@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.uc.yiqibang.mapper.CommentMapper">
+	<!--缓存 -->
+	<!-- <cache eviction="LRU" flushInterval="60000" readOnly="false" size="300" 
+		/> -->
+
+	<!-- 获取所有评论 -->
+	<select id="selectAllComm" resultMap="CommentMap">
+		select * from t_comment
+	</select>
+
+	<!-- 删除评论（根据新闻id） -->
+	<delete id="deleteComm" parameterType="cn.uc.yiqibang.beans.Comment">
+		delete from t_comment
+		<trim prefix="where" prefixOverrides="and|or">
+			<choose>
+				<when test="newsId!=null">
+					and t_n_id=#{newsId}
+				</when>
+				<when test="userId!=null">
+					and t_u_id=#{userId}
+				</when>
+			</choose>
+		</trim>
+	</delete>
+
+	<resultMap type="Comment" id="CommentMap">
+		<id property="id" column="id" />
+		<result property="content" column="c_content" />
+		<result property="thumbsCount" column="c_thumbscount" />
+		<result property="createTime" column="c_createtime" />
+		<result property="userId" column="t_u_id" />
+		<result property="newsId" column="t_n_id" />
+	</resultMap>
+</mapper>

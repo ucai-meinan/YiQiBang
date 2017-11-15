@@ -1,0 +1,74 @@
+package cn.uc.yiqibang.beans;
+
+public class Pic {
+	
+	private int id;
+	private int newsId;
+	private String path;
+	private String info;
+	private String author;
+	private String cource;
+	
+	public Pic() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Pic(int newsId, String path, String info, String author, String cource) {
+		super();
+		this.newsId = newsId;
+		this.path = path;
+		this.info = info;
+		this.author = author;
+		this.cource = cource;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getNewsId() {
+		return newsId;
+	}
+
+	public void setNewsId(int newsId) {
+		this.newsId = newsId;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public String getInfo() {
+		return info;
+	}
+
+	public void setInfo(String info) {
+		this.info = info;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getCource() {
+		return cource;
+	}
+
+	public void setCource(String cource) {
+		this.cource = cource;
+	}
+	
+
+}

@@ -1,0 +1,42 @@
+package cn.uc.yiqibang.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import cn.uc.yiqibang.dao.NewsDao;
+import cn.uc.yiqibang.dao.impl.NewsDaoImpl;
+import cn.uc.yiqibang.utils.Result;
+import cn.uc.yiqibang.utils.WriteResultToClient;
+import net.sf.json.JSONObject;
+
+@WebServlet("/NewsServlet")
+public class NewsServlet extends BaseServlet {
+	private static final long serialVersionUID = 1L;
+
+	NewsDao newsDao = new NewsDaoImpl();
+
+	public void adminSelectAllNews(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("请求获取所有xinwen的评论");
+		Result result = newsDao.selectAllNews();
+		
+		System.out.println("-----------------------"+result);
+		String jsonObj = JSONObject.fromObject(result).toString();
+		try {
+			// 获取响应工具，并向客户端输出结果
+			response.getWriter().println(jsonObj);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+	public void adminDeleteNewsById(HttpServletRequest request, HttpServletResponse response){
+		
+		int newsid=Integer.parseInt(request.getParameter("id"));
+		Result result = newsDao.deleteNews(newsid);
+		WriteResultToClient.writeMethod(result, response);
+		
+	}
+}

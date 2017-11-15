@@ -1,0 +1,83 @@
+package cn.uc.yiqibang.dao.impl;
+
+import javax.servlet.http.HttpServletRequest;
+
+import cn.uc.yiqibang.beans.News;
+import cn.uc.yiqibang.dao.NewsDao;
+import cn.uc.yiqibang.utils.Result;
+
+public class NewsDaoImpl implements NewsDao {
+
+	@Override
+	public Result insertNews(News news) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result deleteNews(int newsid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result updateCommNum(int newsid, int num) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result updateViewCount(int newsid, int count) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result updateNews(News news) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result updateNewsPic(int newsid, int picId, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result selectAllNewsCount() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result selectAllNews() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result selectNewsByTypeId(int typeId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result selectNewsById(int newsid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result selectNewsByLike(String likeStr) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result addNewsPic(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
